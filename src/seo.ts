@@ -40,12 +40,13 @@ export interface SiteSeoConfig {
 }
 
 export const SITE_SEO: SiteSeoConfig = {
-  title: "SattaSpace Tools - Ultimate Markdown Editor & Visual Diff Checker",
+  title:
+    "SattaSpace Tools - Multi-Utility Developer Suite & Regex Companion Workspace",
   shortTitle: "SattaSpace Tools",
   subtitle:
-    "Interactive Real-Time Markdown Compiler & Online Visual Difference Checker",
+    "Sleek Real-Time Markdown Editor, Visual LCS Diff Checker, Crypt helper, Mock Database Builder, SVG Optimizer, and Regex Sandbox",
   description:
-    "An elite developer utility suite featuring an advanced real-time Markdown preview editor and compiler, alongside a high-performance visual text difference checker with precise line-by-line and character-by-character inline change analysis.",
+    "An elite sandbox suite of local developer tools featuring an interactive live Markdown editor, a high-performance visual text difference scanner, professional cryptographic encoders, synthetic database blueprint generators, detailed vector SVG optimizers, and an interactive Regular Expression visual tester and debugging playground.",
   keywords: [
     "developer tools",
     "markdown editor",
@@ -55,12 +56,20 @@ export const SITE_SEO: SiteSeoConfig = {
     "text comparison tool",
     "code diff tool online",
     "lcs difference algorithm",
-    "inline character division highlight",
+    "regex visual sandbox",
+    "regular expression debugger",
+    "regex matching groups",
+    "regex replace substitution",
+    "base64 encoder decoder",
+    "hash generator sha256 md5",
+    "mock json data generator",
+    "csv synthetic builder",
+    "svg vector optimizer",
+    "xml metadata remover",
     "json structure compare",
     "file difference scanner",
     "online markdown compiler",
-    "marked text format",
-    "gfm parser",
+    "vibrant developer workspace",
   ],
   canonicalUrl: "https://tools.sattaspace.com",
   author: "Haradhan Sharma",
@@ -69,7 +78,7 @@ export const SITE_SEO: SiteSeoConfig = {
   ogType: "website",
   ogImage: "/logo.svg",
   twitterCard: "summary_large_image",
-  twitterCreator: "@haradhansharma",
+  twitterCreator: "@astro_dev_hub",
 
   // Google AdSense configurations
   // Populate the 'client' property with your AdSense ID and turn 'enabled' on to active real ads.

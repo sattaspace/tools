@@ -22,6 +22,7 @@ import { marked } from 'marked';
 import { HTML_THEMES, MARKDOWN_TEMPLATES } from '../data/themesAndTemplates';
 import { convertHtmlToMarkdown } from '../utils/htmlToMarkdown';
 import { AdsenseBanner } from './AdsenseBanner';
+import { ToolSeoContent } from './ToolSeoContent';
 import type { HtmlTheme, MarkdownTemplate, TableOfContentsItem } from '../types';
 
 // Helper function to scope a raw CSS stylesheet string to a specific container class (e.g. .markdown-body)
@@ -703,6 +704,11 @@ ${compiledHtml}
                     className={`markdown-body p-8 rounded-lg shadow-md border border-slate-100/10 animate-fade-in ${selectedTheme.previewText || 'text-slate-800'}`}
                     dangerouslySetInnerHTML={{ __html: compiledHtml }} 
                   />
+
+                  {/* High Quality SEO developer guidelines and FAQ */}
+                  <div className="mt-12 select-text text-left">
+                    <ToolSeoContent tool="markdown" />
+                  </div>
                 </div>
               </div>
             )}

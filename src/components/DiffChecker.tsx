@@ -22,6 +22,7 @@ import {
 import { computeLineDiff, computeCharacterDiff, type DiffItem, type WordDiffSegment } from '../utils/diffEngine';
 import { DIFF_SAMPLES } from '../data/diffSamples';
 import { AdsenseBanner } from './AdsenseBanner';
+import { ToolSeoContent } from './ToolSeoContent';
 
 export default function DiffChecker() {
   // Source states
@@ -834,6 +835,11 @@ export default function DiffChecker() {
             )}
 
           </div>
+        </div>
+
+        {/* High-fidelity SEO optimization copy */}
+        <div className="mt-8 select-text">
+          <ToolSeoContent tool="diff" />
         </div>
 
         {/* Footer Ad Slot Banner */}

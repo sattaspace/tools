@@ -1,20 +1,19 @@
 {
   "name": "sattaspacetools",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "wrangler types && astro dev",
+    "build": "wrangler types &&astro build",
     "start": "node ./dist/server/entry.mjs",
-    "preview": "astro preview",
+    "preview": "wrangler types && astro preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "generate-types": "wrangler types"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.5",
-
     "@astrojs/react": "^5.0.5",
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
@@ -40,8 +39,7 @@
     "typescript": "~5.8.2",
     "vite": "^6.2.3"
   },
-  
   "overrides": {
-  "vite": "^6.2.3"
-}
+    "vite": "^6.2.3"
+  }
 }
