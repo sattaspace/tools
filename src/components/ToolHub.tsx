@@ -28,9 +28,9 @@ export default function ToolHub() {
         
         {/* Hub Logo & Version */}
         <div className="flex items-center gap-3 select-none">
-          <img src="/logo.svg" alt="DevHub Suite Logo" className="w-8.5 h-8.5 object-contain rounded-lg" />
+          <img src="/logo.svg" alt="SattaSpace Tools Logo" className="w-8.5 h-8.5 object-contain rounded-lg" />
           <div className="flex flex-col">
-            <span className="text-sm font-bold tracking-tight text-white leading-tight">DevHub Pro</span>
+            <span className="text-sm font-bold tracking-tight text-white leading-tight">SattaSpace Tools</span>
             <span className="text-[9px] text-indigo-400 font-mono uppercase tracking-widest leading-none mt-1">
               Multi-Utility Suite
             </span>
