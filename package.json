@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.5.5",
-    "@astrojs/node": "^10.1.1",
+
     "@astrojs/react": "^5.0.5",
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
@@ -40,7 +40,8 @@
     "typescript": "~5.8.2",
     "vite": "^6.2.3"
   },
+  
   "overrides": {
-    "vite": "^7"
-  }
+  "vite": "^6.2.3"
+}
 }
