@@ -1,0 +1,6 @@
+{
+  "name": "Markdown to HTML Converter",
+  "description": "A professional-grade Markdown to HTML converter with live side-by-side editing, customized HTML style presets, document outlining, reverse HTML-to-Markdown conversion, and AI-powered text enhancement.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

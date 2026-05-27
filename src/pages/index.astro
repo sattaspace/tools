@@ -1,0 +1,54 @@
+---
+import ToolHub from '../components/ToolHub';
+import { SITE_SEO } from '../seo';
+import '../index.css';
+---
+
+<!doctype html>
+<html lang="en" class="h-full bg-slate-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Core SEO Meta Tags -->
+    <title>{SITE_SEO.title}</title>
+    <meta name="description" content={SITE_SEO.description} />
+    <meta name="keywords" content={SITE_SEO.keywords.join(', ')} />
+    <meta name="author" content={SITE_SEO.author} />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content={SITE_SEO.language} />
+    
+    <!-- OpenGraph Social Metadata -->
+    <meta property="og:title" content={SITE_SEO.title} />
+    <meta property="og:description" content={SITE_SEO.description} />
+    <meta property="og:type" content={SITE_SEO.ogType} />
+    <meta property="og:url" content={SITE_SEO.canonicalUrl} />
+    <meta property="og:image" content={SITE_SEO.ogImage} />
+    
+    <!-- Twitter Social Metadata -->
+    <meta name="twitter:card" content={SITE_SEO.twitterCard} />
+    <meta name="twitter:title" content={SITE_SEO.title} />
+    <meta name="twitter:description" content={SITE_SEO.description} />
+    <meta name="twitter:image" content={SITE_SEO.ogImage} />
+    {SITE_SEO.twitterCreator && <meta name="twitter:creator" content={SITE_SEO.twitterCreator} />}
+
+    <!-- Canonical Tag -->
+    <link rel="canonical" href={SITE_SEO.canonicalUrl} />
+
+    <!-- Static Favicon pointing directly to newly created Public directory -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google AdSense Script Integration -->
+    {SITE_SEO.adsense.enabled && (
+      <script 
+        async 
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE_SEO.adsense.client}`} 
+        crossorigin="anonymous"
+      ></script>
+    )}
+  </head>
+  <body class="h-full m-0 p-0 antialiased font-sans select-none">
+    <ToolHub client:load />
+  </body>
+</html>
