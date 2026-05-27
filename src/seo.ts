@@ -40,29 +40,36 @@ export interface SiteSeoConfig {
 }
 
 export const SITE_SEO: SiteSeoConfig = {
-  title: "Sattaspace Tools - Sleek Real-Time Markdown to HTML Converter",
-  shortTitle: "Sattaspace Tools",
-  subtitle: "Interactive Markdown Compiler, Outline Navigator, and Decompiler",
+  title: "SattaSpace Tools - Ultimate Markdown Editor & Visual Diff Checker",
+  shortTitle: "SattaSpace Tools",
+  subtitle:
+    "Interactive Real-Time Markdown Compiler & Online Visual Difference Checker",
   description:
-    "Create, compile, decompile, and format Markdown files with real-time feedback, structure visualizers, and customizable styles. Fully responsive, lightweight, and SEO optimized.",
+    "An elite developer utility suite featuring an advanced real-time Markdown preview editor and compiler, alongside a high-performance visual text difference checker with precise line-by-line and character-by-character inline change analysis.",
   keywords: [
+    "developer tools",
     "markdown editor",
-    "markdown to html",
-    "html to markdown decompiler",
+    "visual diff checker",
+    "markdown to html compiler",
+    "html to markdown converter",
+    "text comparison tool",
+    "code diff tool online",
+    "lcs difference algorithm",
+    "inline character division highlight",
+    "json structure compare",
+    "file difference scanner",
+    "online markdown compiler",
     "marked text format",
     "gfm parser",
-    "online markdown compiler",
-    "developer blueprints",
-    "shiki syntax highlighting",
   ],
   canonicalUrl: "https://tools.sattaspace.com",
-  author: "Vibrant Developer Workspace",
+  author: "Haradhan Sharma",
   language: "en-US",
 
   ogType: "website",
   ogImage: "/logo.svg",
   twitterCard: "summary_large_image",
-  twitterCreator: "@astro_dev_hub",
+  twitterCreator: "@haradhansharma",
 
   // Google AdSense configurations
   // Populate the 'client' property with your AdSense ID and turn 'enabled' on to active real ads.
