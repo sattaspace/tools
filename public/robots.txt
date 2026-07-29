@@ -1,0 +1,7 @@
+# Live crawler rules for sattaspace tools
+User-agent: *
+Allow: /
+
+# Host & Sitemap declarations
+Host: https://tools.sattaspace.com
+Sitemap: https://tools.sattaspace.com/sitemap-index.xml
