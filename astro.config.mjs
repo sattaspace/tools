@@ -20,6 +20,9 @@ export default defineConfig({
         "@": "/src",
       },
     },
+    define: {
+      "import.meta.env.SITE": JSON.stringify("https://tools.sattaspace.com"),
+    },
   },
   trailingSlash: "always",
   publicDir: "./public",
