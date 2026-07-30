@@ -1,0 +1,36 @@
+# SattaSpace Tools — Developer Utility Suite
+
+## Overview
+SattaSpace Tools is a free, client-side, privacy-first multi-utility suite for developers featuring six specialized tools accessible at dedicated URLs.
+
+## Tools
+
+### 1. Markdown Workspace — https://tools.sattaspace.com/markdown
+**Live GitHub-Flavored Markdown editor** with split preview, HTML export (themed), HTML→Markdown reverse conversion, templates, outline, cheatsheet.
+- **Keywords:** markdown editor online, markdown to html converter, html to markdown, github flavored markdown, gfm live preview, markdown workspace, markdown compiler, markdown templates, markdown cheatsheet, markdown outline generator
+
+### 2. Diff Checker — https://tools.sattaspace.com/diff
+**Visual LCS-based difference checker** with line-level and inline character-level highlighting. Side-by-side & unified views. Syntax-aware. Privacy-first.
+- **Keywords:** diff checker online, code comparison tool, text diff tool, visual diff viewer, lcs diff algorithm, inline diff highlighter, code review diff, file comparison tool, unified diff viewer
+
+### 3. Crypt & Encoders — https://tools.sattaspace.com/crypto
+**Secure local cryptographic toolkit**: SHA-256/512, MD5, SHA-1 hashes; Base64, URL-Safe Base64 encode/decode; ROT13/ROT47 ciphers. Zero-server, all in-browser.
+- **Keywords:** sha256 generator online, sha512 hash generator, md5 hash generator, sha1 hash tool, base64 encoder decoder, url safe base64, rot13 cipher tool, rot47 encoder, cryptographic hash calculator
+
+### 4. Blueprint Builder — https://tools.sattaspace.com/blueprint
+**Synthetic data generator** for database benchmarking, UI prototyping, API testing. Visual schema builder with 15+ field types (UUID, names, emails, prices, dates, coordinates). JSON/CSV export. Millions of rows, client-side.
+- **Keywords:** mock data generator, fake json generator, csv data generator, database seed data, synthetic test data, mock api response generator, json placeholder alternative, faker.js alternative, test data factory
+
+### 5. SVG Optimizer — https://tools.sattaspace.com/svg
+**Professional SVG optimizer**: strips Illustrator/Inkscape/Figma metadata, removes empty groups, unused defs, comments, minifies paths, preserves viewBox. Visual before/after with byte savings.
+- **Keywords:** svg optimizer online, svg minifier, svg compressor, remove svg metadata, inkscape metadata remover, illustrator svg cleanup, svg file size reducer, svg path minifier, vector graphics optimization
+
+### 6. Regex Sandbox — https://tools.sattaspace.com/regex
+**Advanced regex sandbox**: real-time match highlighting, capture group visualization, substitution preview, flag toggles (g,i,m,s,u), regex explanation, catastrophic backtracking detection. JS/PCRE flavor.
+- **Keywords:** regex tester online, regex debugger, regular expression visualizer, regex capture groups, regex replace tool, regex flags explained, javascript regex tester, pcre regex tester, regex catastrophic backtracking
+
+## Author
+Haradhan Sharma — https://sattaspace.com
+
+## License
+Free for personal and commercial use. No warranty.

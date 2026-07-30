@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   FileEdit, 
   Split,
@@ -17,15 +17,63 @@ import { SITE_SEO } from '../seo';
 
 type ActiveTool = 'markdown' | 'diff' | 'crypto' | 'blueprint' | 'svg' | 'regex';
 
-export default function ToolHub() {
-  const [activeTool, setActiveTool] = useState<ActiveTool>('markdown');
+interface ToolHubProps {
+  initialTool?: ActiveTool;
+}
+
+const TOOL_PATHS: Record<ActiveTool, string> = {
+  markdown: '/markdown',
+  diff: '/diff',
+  crypto: '/crypto',
+  blueprint: '/blueprint',
+  svg: '/svg',
+  regex: '/regex',
+};
+
+const PATH_TO_TOOL: Record<string, ActiveTool> = {
+  '/markdown': 'markdown',
+  '/diff': 'diff',
+  '/crypto': 'crypto',
+  '/blueprint': 'blueprint',
+  '/svg': 'svg',
+  '/regex': 'regex',
+};
+
+export default function ToolHub({ initialTool = 'markdown' }: ToolHubProps) {
+  const [activeTool, setActiveTool] = useState<ActiveTool>(initialTool);
+
+  // On client mount: sync state with current URL path
+  useEffect(() => {
+    const path = window.location.pathname;
+    const toolFromPath = PATH_TO_TOOL[path];
+    if (toolFromPath && toolFromPath !== activeTool) {
+      setActiveTool(toolFromPath);
+    }
+  }, [activeTool]);
+
+  // Handle tab click: update state + push new URL (no reload)
+  const handleToolChange = (tool: ActiveTool) => {
+    if (tool === activeTool) return;
+    setActiveTool(tool);
+    window.history.pushState({ tool }, '', TOOL_PATHS[tool]);
+  };
+
+  // Handle browser back/forward
+  useEffect(() => {
+    const onPopState = (event: PopStateEvent) => {
+      const stateTool = event.state?.tool as ActiveTool | undefined;
+      const pathTool = PATH_TO_TOOL[window.location.pathname];
+      const tool = stateTool ?? pathTool ?? initialTool;
+      setActiveTool(tool);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [initialTool]);
 
   return (
     <div className="flex flex-col h-screen max-h-screen bg-[#0F172A] text-slate-200 overflow-hidden font-sans" id="tool-hub-root">
-      
       {/* CENTRAL DEVS SUITE BRAND EXTRACTION HEADER */}
       <header className="h-14 border-b border-slate-800 bg-[#1E293B] flex items-center justify-between px-6 shrink-0 z-10" id="tool-hub-main-header">
-        
         {/* Hub Logo & Version */}
         <div className="flex items-center gap-3 select-none">
           <img src="/logo.svg" alt="SattaSpace Tools Logo" className="w-8.5 h-8.5 object-contain rounded-lg" />
@@ -40,7 +88,7 @@ export default function ToolHub() {
         {/* Global Hub Navigation Tabs */}
         <div className="flex items-center bg-slate-950/60 p-1 rounded-xl border border-slate-800" id="tool-hub-navigation">
           <button
-            onClick={() => setActiveTool('markdown')}
+            onClick={() => handleToolChange('markdown')}
             className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition ${
               activeTool === 'markdown' 
                 ? 'bg-indigo-650 text-white shadow-md shadow-indigo-950/30' 
@@ -52,7 +100,7 @@ export default function ToolHub() {
           </button>
 
           <button
-            onClick={() => setActiveTool('diff')}
+            onClick={() => handleToolChange('diff')}
             className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition ${
               activeTool === 'diff' 
                 ? 'bg-indigo-650 text-white shadow-md shadow-indigo-950/30' 
@@ -64,7 +112,7 @@ export default function ToolHub() {
           </button>
 
           <button
-            onClick={() => setActiveTool('crypto')}
+            onClick={() => handleToolChange('crypto')}
             className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition ${
               activeTool === 'crypto' 
                 ? 'bg-indigo-650 text-white shadow-md shadow-indigo-950/30' 
@@ -76,7 +124,7 @@ export default function ToolHub() {
           </button>
 
           <button
-            onClick={() => setActiveTool('blueprint')}
+            onClick={() => handleToolChange('blueprint')}
             className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition ${
               activeTool === 'blueprint' 
                 ? 'bg-indigo-650 text-white shadow-md shadow-indigo-950/30' 
@@ -88,7 +136,7 @@ export default function ToolHub() {
           </button>
 
           <button
-            onClick={() => setActiveTool('svg')}
+            onClick={() => handleToolChange('svg')}
             className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition ${
               activeTool === 'svg' 
                 ? 'bg-indigo-650 text-white shadow-md shadow-indigo-950/30' 
@@ -100,7 +148,7 @@ export default function ToolHub() {
           </button>
 
           <button
-            onClick={() => setActiveTool('regex')}
+            onClick={() => handleToolChange('regex')}
             className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold cursor-pointer transition ${
               activeTool === 'regex' 
                 ? 'bg-indigo-650 text-white shadow-md shadow-indigo-950/30' 

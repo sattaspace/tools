@@ -18,5 +18,17 @@ export default defineConfig({
       },
     },
   },
-  trailingSlash: "always",
+  // Explicitly include all routes for pre-rendering
+  prerender: {
+    entries: [
+      "/",
+      "/markdown",
+      "/diff",
+      "/crypto",
+      "/blueprint",
+      "/svg",
+      "/regex"
+    ],
+    crawl: true
+  }
 });

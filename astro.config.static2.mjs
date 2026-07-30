@@ -18,5 +18,16 @@ export default defineConfig({
       },
     },
   },
-  trailingSlash: "always",
+  // Force prerendering of all tool routes
+  prerender: {
+    entries: [
+      "/",
+      "/markdown/",
+      "/diff/",
+      "/crypto/",
+      "/blueprint/",
+      "/svg/",
+      "/regex/"
+    ]
+  }
 });

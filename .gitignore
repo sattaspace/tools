@@ -8,3 +8,5 @@ coverage/
 *.log
 .env*
 !.env.example
+SEO_GEO_IMPLEMENTATION_TRACKING.md
+SEO_GEO_TECHNICAL_PLAN.md

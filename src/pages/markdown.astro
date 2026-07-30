@@ -1,0 +1,72 @@
+---
+import { getToolSeoConfig, type ToolSeoConfig } from '../lib/seo';
+import ToolHub from '../components/ToolHub';
+import { SITE_SEO } from '../seo';
+import '../index.css';
+
+const tool: ToolSeoConfig['tool'] = 'markdown';
+const seo: ToolSeoConfig = getToolSeoConfig(tool);
+const canonicalUrl = seo.canonicalUrl;
+const site = import.meta.env.SITE ?? 'https://tools.sattaspace.com';
+---
+
+<!doctype html>
+<html lang={seo.language}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Core SEO Meta Tags -->
+  <title>{seo.title}</title>
+  <meta name="description" content={seo.description} />
+  <meta name="keywords" content={seo.keywords.join(', ')} />
+  <meta name="author" content={seo.author} />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content={seo.language} />
+
+  <!-- OpenGraph Social Metadata -->
+  <meta property="og:type" content={seo.ogType} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={seo.title} />
+  <meta property="og:description" content={seo.description} />
+  <meta property="og:image" content={new URL(seo.ogImagePath, site).href} />
+  <meta property="og:site_name" content={SITE_SEO.shortTitle} />
+
+  <!-- Twitter Social Metadata -->
+  <meta name="twitter:card" content={seo.twitterCard} />
+  <meta name="twitter:title" content={seo.title} />
+  <meta name="twitter:description" content={seo.description} />
+  <meta name="twitter:image" content={new URL(seo.ogImagePath, site).href} />
+  {seo.twitterCreator && <meta name="twitter:creator" content={seo.twitterCreator} />}
+
+  <!-- Hreflang Alternates -->
+  {Object.entries(seo.hreflang ?? {}).map(([lang, url]) => (
+    <link rel="alternate" hreflang={lang} href={url} />
+  ))}
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(seo.schema)} />
+
+  <!-- Static Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google AdSense -->
+  {seo.adsense.enabled && (
+    <script
+      async
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${seo.adsense.client}`}
+      crossorigin="anonymous"
+    />
+  )}
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body class="h-full m-0 p-0 antialiased font-sans select-none">
+  <ToolHub client:load initialTool={tool} />
+</body>
+</html>

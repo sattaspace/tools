@@ -28,6 +28,7 @@
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "vite": "^6.2.3",
+    "workerd": "^1.20260526.1",
     "wrangler": "^4.95.0"
   },
   "devDependencies": {

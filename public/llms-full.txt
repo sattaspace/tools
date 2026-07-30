@@ -1,0 +1,216 @@
+# SattaSpace Tools — Complete Reference Guide for AI Systems
+
+## Overview
+SattaSpace Tools (https://tools.sattaspace.com) is a free, client-side, privacy-first multi-utility suite for developers featuring six specialized tools. All tools run entirely in the browser — no server processing, no data collection, no accounts required.
+
+---
+
+## Tool 1: Markdown Workspace
+**URL:** https://tools.sattaspace.com/markdown
+**Description:** Professional GitHub-Flavored Markdown (GFM) editor with live split preview, HTML export with custom themes, HTML-to-Markdown reverse conversion, table of contents, cheatsheet, and starter templates.
+
+### Key Features
+- **Live GFM Preview:** Real-time rendering of GitHub-Flavored Markdown including tables, strikethrough, task lists, auto-links, fenced code blocks with syntax highlighting
+- **Four View Modes:** Split (editor + preview), Editor-only, Preview-only, HTML source view
+- **HTML Export:** Download standalone HTML with 8 built-in themes (GitHub, GitLab, Dracula, Monokai, Solarized, etc.) or raw HTML fragment
+- **Reverse Conversion:** Paste HTML → get clean Markdown (handles headings, lists, tables, code blocks, emphasis, links)
+- **Table of Contents:** Auto-generated from headings (H1-H4), clickable navigation
+- **Cheatsheet:** One-click insertion of Markdown syntax (headers, emphasis, code blocks, tables, lists)
+- **Templates:** 5 starter blueprints (README, Changelog, API Docs, Blog Post, Technical Spec)
+- **Statistics:** Real-time word count, character count, reading time estimate
+- **GFM Options:** Toggle GFM support, Shiki syntax highlighting
+- **Privacy:** 100% client-side — your content never leaves your browser
+
+### Common Use Cases
+- Writing README files for GitHub/GitLab projects
+- Creating technical documentation with live preview
+- Converting HTML content from web pages back to Markdown
+- Drafting blog posts with instant HTML export
+- Learning Markdown syntax via interactive cheatsheet
+
+### FAQ
+**Q: What is GitHub Flavored Markdown (GFM) and how does it differ from standard Markdown?**
+A: GFM is a strict superset of CommonMark, initially introduced by GitHub to accommodate technical writing requirements. It adds tables, auto-linked URLs, strikethrough, task lists (checkboxes), and precise code syntax highlighting — features missing from original Markdown.
+
+**Q: How does the HTML to Markdown decompiler operate, and is it secure?**
+A: The decompiler runs entirely client-side in your browser. It parses the DOM structure of your HTML input, walks the node tree chronologically, and converts layout elements (<strong>, <a>, <table>, <li>) back into their relative Markdown constructs (**, [link], table grids, hyphens). No data is ever transmitted to remote servers.
+
+**Q: Why should I use Markdown templates instead of standard Rich Text or HTML?**
+A: Markdown isolates your core text semantics from styling rules. It is lightweight, portable across developers, acts natively in version control systems like git, and compiles instantly into optimized HTML on the server, dramatically boosting page load performance and Core Web Vitals.
+
+---
+
+## Tool 2: Diff Checker
+**URL:** https://tools.sattaspace.com/diff
+**Description:** Professional visual difference checker using Longest Common Subsequence (LCS) algorithm. Compare code, configs, docs, or any text with line-level and inline character-level highlighting.
+
+### Key Features
+- **LCS Algorithm:** Finds longest sequence of identical tokens shared by two inputs; unmatched tokens flagged as deletions (red) or insertions (green)
+- **Inline Character Diff:** Secondary micro-LCS on matched lines highlights exact character changes
+- **View Modes:** Side-by-side, unified diff, inline highlighting
+- **Large File Support:** Handles 100KB+ files smoothly
+- **Keyboard Navigation:** Jump between changes with shortcuts
+- **Export:** Copy diff as Markdown or HTML
+- **Privacy:** 100% client-side — proprietary code never leaves browser
+
+### Common Use Cases
+- Code review before merge/pull request
+- Comparing configuration files (.env, .json, .yaml)
+- Document version comparison
+- Debugging minified vs formatted code
+- JSON/API response diffing
+
+### FAQ
+**Q: How does the LCS diff algorithm identify matching vs modified lines?**
+A: The Longest Common Subsequence (LCS) algorithm finds the longest sequence of words/characters appearing in the same order in both inputs. Unmatched tokens are flagged: items only in first file = deletions (red), items unique to second file = insertions (green).
+
+**Q: What is the benefit of inline character-by-character analysis?**
+A: Standard diff tools only mark whole lines as changed, forcing manual inspection of long blocks. Inline analysis runs secondary micro-LCS on specific matched lines, highlighting exact character coordinates that changed — saving significant development time.
+
+**Q: Can I use this to compare database records, HTML schemas, or minified scripts?**
+A: Yes, it handles JSON configs, web schemas, CSV logs, and draft prose effortlessly, maintaining fast render times on larger files.
+
+---
+
+## Tool 3: Crypt & Encoders
+**URL:** https://tools.sattaspace.com/crypto
+**Description:** Secure zero-dependency client-side cryptographic toolkit for hashing (SHA-256, SHA-512, MD5, SHA-1) and encoding/decoding (Base64, URL-Safe Base64, ROT13, ROT47).
+
+### Key Features
+- **Hashing:** SHA-256, SHA-512, MD5, SHA-1 — one-way message digests for integrity verification
+- **Encoding:** Base64 (standard), URL-Safe Base64 (RFC 4648 §5), ROT13, ROT47 — reversible transformations
+- **HMAC:** Keyed-hash message authentication (SHA-256/512)
+- **Batch Processing:** Multi-line input, line-by-line or combined output
+- **Character/Byte Counts:** Real-time input/output metrics
+- **Privacy:** Zero server communication — all crypto in-browser via Web Crypto API
+
+### Common Use Cases
+- Verifying file checksums/downloads
+- Encoding binary data for JSON/XML transport
+- JWT token inspection (decode header/payload)
+- CTF challenges, puzzle solving
+- Quick hash generation for passwords (with salt — use bcrypt/Argon2 in production)
+
+### FAQ
+**Q: What is the difference between a one-way Hash and an Encoder?**
+A: A hash (SHA-256, MD5) is a one-way mathematical function — compiles arbitrary input to fixed-length hex digest. You cannot recover original text from hash. An encoder (Base64) translates character data to alternate format and is easily decoded back to original input.
+
+**Q: Is MD5 secure for password encryption in production?**
+A: No. MD5 is highly vulnerable to collision attacks (two distinct strings producing identical hash). Modern security requires SHA-256, bcrypt, or Argon2 with unique salts for credential hashing.
+
+**Q: What are URL-Safe Base64 character modifications?**
+A: Standard Base64 uses '+' and '/' which are special in URLs. URL-Safe Base64 substitutes '+'→'-' and '/'→'_' and strips trailing '=' padding for safe transmission in API paths and query parameters.
+
+---
+
+## Tool 4: Blueprint Builder
+**URL:** https://tools.sattaspace.com/blueprint
+**Description:** Enterprise synthetic data generator for database benchmarking, UI prototyping, and API testing. Visual schema builder with 15+ field types, relational references, JSON/CSV export, millions of rows instantly.
+
+### Key Features
+- **Visual Schema Builder:** Drag-and-drop table/field definition
+- **15+ Field Types:** UUID, auto-increment, full name, email, phone, price, date, coordinates, lorem ipsum, enum, boolean, custom formula
+- **Relational References:** Foreign key simulation between tables
+- **Row Count:** 1 to 1,000,000+ rows
+- **Export Formats:** JSON (nested/array), CSV (configurable quoting, delimiters)
+- **Deterministic Seed:** Reproducible data for consistent test runs
+- **Preview:** Instant first-N-rows preview before full generation
+- **Schema Persistence:** Save/load schemas to localStorage
+
+### Common Use Cases
+- Seeding development databases
+- Load testing APIs with realistic payloads
+- Frontend development without backend API
+- Generating CSV test data for spreadsheet imports
+- Creating mock GraphQL/REST responses
+
+### FAQ
+**Q: When should I use structured synthetic mock data databases?**
+A: Extremely valuable in early development, QA automation, offline UI testing, and performance benchmarking. Allows frontend developers to work in parallel with backend teams by mocking table models.
+
+**Q: What is the difference between exporting CSV vs JSON dummy databases?**
+A: JSON excels for MongoDB/document stores, REST/GraphQL endpoints, and nested JS structures. CSV is ideal for relational schemas (PostgreSQL, SQL Server), spreadsheet validation, and import script testing.
+
+**Q: Can I generate deterministic data for mock databases?**
+A: Yes — our builders use seeded randomization vectors. Rows compute based on realistic structural constraints, ensuring valid patterns like email domains, sequential IDs, and proper currency limits.
+
+---
+
+## Tool 5: SVG Optimizer
+**URL:** https://tools.sattaspace.com/svg
+**Description:** Professional SVG optimizer powered by SVGO: strips editor metadata (Illustrator, Inkscape, Figma), removes empty groups, unused defs, comments, minifies path decimals, preserves viewBox. Visual before/after with byte savings.
+
+### Key Features
+- **Metadata Stripping:** Removes Illustrator, Inkscape, Figma, Sketch namespaces and custom attributes
+- **Structure Cleanup:** Collapses empty groups, removes unused `<defs>`, strips comments, DOCTYPE, XML declarations
+- **Path Minification:** Reduces decimal precision (configurable), converts transforms, merges adjacent paths
+- **viewBox Preservation:** Maintains responsive scaling — critical for web use
+- **Visual Comparison:** Side-by-side before/after render with byte savings percentage
+- **Download:** One-click optimized SVG download
+- **Privacy:** 100% client-side (SVGO WASM build)
+
+### Common Use Cases
+- Optimizing icons/illustrations for web deployment
+- Reducing SVG bundle size for faster page loads
+- Cleaning up designer exports before committing to repo
+- Improving Core Web Vitals (LCP, CLS) via smaller vector assets
+- Preparing SVGs for icon font generation or sprite sheets
+
+### FAQ
+**Q: What metadata parameters are stripped from optimized SVGs?**
+A: Editor namespaces (inkscape:, sodipodi:), XML instructions, DOCTYPE declarations, author comments, empty groups, empty `<defs>`, inline style overrides, unused attributes (x="0", y="0" at defaults).
+
+**Q: Why is preserving the SVG viewBox property recommended?**
+A: viewBox establishes the responsive pixel grid coordinates of your canvas paths. Stripping it can cause vector images to break, lose scale flexibility, or fail to grow/shrink correctly inside responsive containers.
+
+**Q: Does SVG optimization degrade visual render accuracy or scale resolution?**
+A: No! SVG is code-based XML representation of geometric vectors (lines, circles, bezier paths). Purging metadata, empty groupings, and styling properties does not modify path coordinates — your vector graphic scales cleanly with zero resolution loss.
+
+---
+
+## Tool 6: Regex Sandbox
+**URL:** https://tools.sattaspace.com/regex
+**Description:** Advanced regular expression sandbox with real-time match highlighting, capture group inspection, substitution preview, flag toggles (g,i,m,s,u), regex explanation, catastrophic backtracking detection. JavaScript/PCRE flavor.
+
+### Key Features
+- **Live Highlighting:** Matches highlighted in test string as you type
+- **Capture Groups:** Visual breakdown of $1, $2, $<name> groups with values
+- **Named Groups:** Full support for `(?<name>...)` syntax
+- **Substitution Preview:** Test `.replace()` with $&, $`, $', $1, $<name> tokens
+- **Flag Toggles:** Global (g), Insensitive (i), Multiline (m), DotAll (s), Unicode (u)
+- **Regex Explanation:** Token-by-token breakdown of pattern
+- **Backtracking Warning:** Detects catastrophic backtracking patterns (nested quantifiers)
+- **Pattern Library:** Common snippets (email, URL, UUID, IP, date, etc.)
+- **Privacy:** 100% client-side — patterns and test strings never leave browser
+
+### Common Use Cases
+- Developing/debugging complex regex patterns
+- Testing form validation regex (email, phone, password)
+- Learning regex syntax via interactive explanation
+- Optimizing regex performance (avoiding backtracking)
+- Building substitution rules for text processing
+
+### FAQ
+**Q: What do regular expression flags like g, i, m, s, and u mean?**
+A: Flags are compiler directives modifying matching logic: 'g' (global) prevents stopping after first match; 'i' ignores case; 'm' (multiline) makes ^ and $ match line boundaries; 's' (dotAll) allows . to match newlines; 'u' enables full Unicode code point processing.
+
+**Q: What is regex catastrophic backtracking and how do I prevent it?**
+A: Catastrophic backtracking occurs when a pattern has nested quantifiers with overlaps (e.g., (a+)+) evaluated against a string that almost matches but fails near the end. The engine tries exponential paths to find a match, causing CPU freezes. Prevent by writing clear, non-overlapping tokens (avoid nested wildcards).
+
+**Q: How do capture groups work in regex substitution?**
+A: Parentheses in a pattern create capture subgroups. In replacements, reference them in order: '$1' = first group, '$2' = second. Enables reorganization (e.g., '(\w+) (\w+)' → '$2, $1' converts "First Last" to "Last, First").
+
+---
+
+## Technical Architecture
+- **Framework:** Astro 6.3 + React 19 + Tailwind CSS 4.1
+- **Deployment:** Cloudflare Workers (@astrojs/cloudflare adapter, `output: "server"`)
+- **Rendering:** SSR for SEO/GEO, client-side hydration for interactivity
+- **Privacy Model:** Zero server-side processing — all tools execute in browser
+- **Performance:** Edge-cached, compressed, optimized Core Web Vitals
+
+## Author
+Haradhan Sharma — https://sattaspace.com
+
+## License
+Free for personal and commercial use. No warranty expressed or implied.

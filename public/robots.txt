@@ -1,7 +1,43 @@
-# Live crawler rules for sattaspace tools
+# Live crawler rules for SattaSpace Tools
 User-agent: *
 Allow: /
+
+# Tool-specific paths (all allowed for indexing)
+Allow: /markdown/
+Allow: /diff/
+Allow: /crypto/
+Allow: /blueprint/
+Allow: /svg/
+Allow: /regex/
+
+# Prevent crawling of SPA fallback URLs with query params
+# Disallow: /*?tool=*
 
 # Host & Sitemap declarations
 Host: https://tools.sattaspace.com
 Sitemap: https://tools.sattaspace.com/sitemap-index.xml
+
+# AI Crawler directives (emerging standard)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: BingPreview
+Allow: /
