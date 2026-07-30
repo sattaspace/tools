@@ -9,5 +9,8 @@
 	},
 	"observability": {
 		"enabled": true
+	},
+	"vars": {
+		"SITE": "https://tools.sattaspace.com"
 	}
 }
