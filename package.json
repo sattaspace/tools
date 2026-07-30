@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "wrangler types && astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "clean": "rm -rf .astro dist node_modules/.vite",
     "lint": "tsc --noEmit",
@@ -30,14 +30,6 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "esbuild": "^0.25.0",
     "typescript": "~5.8.2"
-  },
-  "allowScripts": {
-    "@google/genai": true,
-    "esbuild": true,
-    "protobufjs": true,
-    "sharp@0.34.5": true,
-    "workerd": true
   }
 }
