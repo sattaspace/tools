@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "wrangler types && astro dev",
-    "build": "wrangler types &&astro build",
+    "build": "astro build",
+    "build:workers": "wrangler types && astro build",
     "start": "node ./dist/server/entry.mjs",
-    "preview": "wrangler types && astro preview",
+    "preview": "astro preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "generate-types": "wrangler types"
@@ -28,7 +29,6 @@
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "vite": "^6.2.3",
-    "workerd": "^1.20260526.1",
     "wrangler": "^4.95.0"
   },
   "devDependencies": {
