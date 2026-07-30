@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "astro check && astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "start": "node ./dist/server/entry.mjs",
     "preview": "astro preview",
     "clean": "rm -rf .astro dist",
-    "lint": "tsc --noEmit",
+    "lint": "tsc --noEmit --project tsconfig.json",
     "generate-types": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.10",
     "@astrojs/cloudflare": "^13.0.0",
     "@astrojs/react": "^5.0.5",
     "@astrojs/sitemap": "^3.7.3",
@@ -25,8 +26,8 @@
     "lucide-react": "^0.546.0",
     "marked": "^18.0.4",
     "motion": "^12.23.24",
-    "react": "^19.0.1",
-    "react-dom": "^19.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "vite": "^6.2.3"
   },
   "devDependencies": {
@@ -41,5 +42,13 @@
   },
   "overrides": {
     "vite": "^6.2.3"
+  },
+  "allowScripts": {
+    "@google/genai": true,
+    "esbuild": true,
+    "protobufjs": true,
+    "sharp@0.34.5": true,
+    "workerd@1.20260722.1": true,
+    "sharp@0.35.2": true
   }
 }
