@@ -1,13 +1,13 @@
 {
-	"compatibility_date": "2026-05-27",
-	"compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
-	"name": "sattaspacetools",
-	"main": "@astrojs/cloudflare/entrypoints/server",
-	"assets": {
-		"directory": "./dist",
-		"binding": "ASSETS"
-	},
-	"observability": {
-		"enabled": true
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sattaspacetools",
+  "compatibility_date": "2026-07-29",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
 }

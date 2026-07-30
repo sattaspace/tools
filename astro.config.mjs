@@ -7,17 +7,21 @@ import cloudflare from "@astrojs/cloudflare";
 
 import sitemap from "@astrojs/sitemap";
 
+import path from "node:path";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://tools.sattaspace.com",
   output: "server",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "cloudflare",
+  }),
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        "@": "/src",
+        "@": path.resolve("./src"),
       },
     },
     define: {
