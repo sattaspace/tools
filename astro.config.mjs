@@ -9,7 +9,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://tools.sattaspace.com",
+  site: process.env.SITE || "https://tools.sattaspace.com",
   output: "server",
   adapter: cloudflare(),
   integrations: [react(), sitemap()],
