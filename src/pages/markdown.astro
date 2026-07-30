@@ -51,7 +51,7 @@ const site = import.meta.env.SITE ?? 'https://tools.sattaspace.com';
   <script type="application/ld+json" set:html={JSON.stringify(seo.schema)} />
 
   <!-- Static Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
 
   <!-- Google AdSense -->
   {seo.adsense.enabled && (

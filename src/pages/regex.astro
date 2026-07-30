@@ -45,7 +45,7 @@ const site = import.meta.env.SITE ?? 'https://tools.sattaspace.com';
 
   <script type="application/ld+json" set:html={JSON.stringify(seo.schema)} />
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
 
   {seo.adsense.enabled && (
     <script
