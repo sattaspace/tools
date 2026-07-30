@@ -4,11 +4,11 @@
   "version": "0.0.3",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "astro check && astro dev",
+    "build": "astro check && astro build",
     "start": "node ./dist/server/entry.mjs",
     "preview": "astro preview",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf .astro dist",
     "lint": "tsc --noEmit",
     "generate-types": "wrangler types"
   },
