@@ -22,4 +22,5 @@ export default defineConfig({
     },
   },
   trailingSlash: "always",
+  publicDir: "./public",
 });
