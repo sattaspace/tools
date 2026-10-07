@@ -6,7 +6,7 @@
   "kv_namespaces": [
     {
       "binding": "APP_CACHE",
-      "id": "local-session-kv"
+      "id": "sattaspacetools-session"
     }
   ],
   "assets": {
