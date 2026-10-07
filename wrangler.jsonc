@@ -1,13 +1,37 @@
-{
+﻿{
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sattaspacetools",
   "compatibility_date": "2026-07-29",
   "compatibility_flags": ["nodejs_compat"],
+  "kv_namespaces": [
+    {
+      "binding": "APP_CACHE",
+      "id": "local-session-kv"
+    }
+  ],
   "assets": {
     "directory": "./dist/client",
     "binding": "ASSETS"
   },
   "observability": {
     "enabled": true
+  },
+  "vars": {
+    "SITE": "https://tools.sattaspace.com",
+    "APP_URL": "https://tools.sattaspace.com",
+    "PUBLIC_SITE_URL": "https://tools.sattaspace.com",
+    "GOOGLE_ADSENSE_CLIENT": "ca-pub-6547428806314947",
+    "PUBLIC_ADSENSE_CLIENT": "ca-pub-6547428806314947",
+    "GOOGLE_ADSENSE_ENABLED": "true",
+    "PUBLIC_ADSENSE_ENABLED": "true",
+    "GOOGLE_ADSENSE_TEST_MODE": "false",
+    "PUBLIC_ADSENSE_TEST_MODE": "false",
+    "GOOGLE_ADSENSE_SLOT_SIDEBAR": "8472910531",
+    "PUBLIC_ADSENSE_SLOT_SIDEBAR": "8472910531",
+    "GOOGLE_ADSENSE_SLOT_FOOTER": "9312847502",
+    "PUBLIC_ADSENSE_SLOT_FOOTER": "9312847502",
+    "GOOGLE_ADSENSE_SLOT_MIDCONTENT": "1057391823",
+    "PUBLIC_ADSENSE_SLOT_MIDCONTENT": "1057391823",
+    "GEMINI_API_KEY": ""
   }
 }

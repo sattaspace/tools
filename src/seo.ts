@@ -1,4 +1,4 @@
-// Site SEO & Google AdSense Configuration Sheet
+﻿// Site SEO & Google AdSense Configuration Sheet
 // Easily customize your SEO parameters, keywords, tracking, and ad scripts here.
 
 export interface AdsenseSlotConfig {
@@ -71,7 +71,7 @@ export const SITE_SEO: SiteSeoConfig = {
     "online markdown compiler",
     "vibrant developer workspace",
   ],
-  canonicalUrl: "https://tools.sattaspace.com",
+  canonicalUrl: "https://tools.sattaspace.com/",
   author: "Haradhan Sharma",
   language: "en-US",
 

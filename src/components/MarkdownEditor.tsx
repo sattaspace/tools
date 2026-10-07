@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { 
   FileCode, 
   BookOpen, 
@@ -190,6 +190,16 @@ export default function MarkdownEditor() {
     }, 2000);
   };
 
+  // Extract clean plain text from HTML
+  const getPlainText = (html: string): string => {
+    if (typeof document !== 'undefined') {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      return tempDiv.innerText || tempDiv.textContent || '';
+    }
+    return html.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ');
+  };
+
   // Convert HTML back to markdown
   const handleReverseConvert = () => {
     try {
@@ -345,7 +355,7 @@ ${compiledHtml}
             }`}
           >
             <RotateCcw className="w-3 h-3 shrink-0" />
-            <span>HTML → MD</span>
+            <span>HTML â†’ MD</span>
           </button>
         </div>
       </div>
@@ -602,7 +612,7 @@ ${compiledHtml}
             
             {/* VIEW TAB "SPLIT": Side-by-side editing */}
             {activeTab === 'split' && (
-              <div className="flex-1 flex divide-x divide-slate-800 overflow-hidden" id="split-view">
+              <div className="flex-1 flex divide-x divide-slate-800 overflow-hidden google-auto-ads-ignore" id="split-view" data-google-auto-ads-ignore="true">
                 {/* Editor Panel Left */}
                 <div className="w-1/2 flex flex-col h-full bg-[#1E293B] relative">
                   <div className="h-10 px-4 flex items-center bg-[#0F172A]/30 border-b border-slate-800/50 justify-between select-none">
@@ -624,6 +634,7 @@ ${compiledHtml}
                     <span className="text-[11px] font-mono text-slate-500 uppercase tracking-widest">Preview: html_rendered</span>
                     <div className="flex items-center gap-3">
                       <button
+                        id="btn-copy-live-html"
                         onClick={() => copyToClipboard(compiledHtml, 'live-html')}
                         className="px-2 py-1 text-[10px] font-bold text-indigo-600 hover:text-indigo-500 hover:bg-slate-100 rounded border border-slate-200 flex items-center gap-1 transition cursor-pointer"
                         title="Copy Compiled HTML"
@@ -637,6 +648,24 @@ ${compiledHtml}
                           <>
                             <Copy className="w-3 h-3 text-slate-400" />
                             <span>Copy HTML</span>
+                          </>
+                        )}
+                      </button>
+                      <button
+                        id="btn-copy-live-text"
+                        onClick={() => copyToClipboard(getPlainText(compiledHtml), 'live-text')}
+                        className="px-2 py-1 text-[10px] font-bold text-slate-700 hover:text-indigo-600 hover:bg-slate-100 rounded border border-slate-200 flex items-center gap-1 transition cursor-pointer"
+                        title="Copy as plain text"
+                      >
+                        {isCopied && clipboardFeedback === 'live-text' ? (
+                          <>
+                            <Check className="w-3 h-3 text-emerald-600" />
+                            <span>Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <FileText className="w-3 h-3 text-slate-400" />
+                            <span>CopyText</span>
                           </>
                         )}
                       </button>
@@ -659,7 +688,7 @@ ${compiledHtml}
 
             {/* VIEW TAB "EDITOR": Full Screen Text Area */}
             {activeTab === 'editor' && (
-              <div className="flex-1 flex flex-col bg-[#1E293B] h-full" id="sole-editor-view">
+              <div className="flex-1 flex flex-col bg-[#1E293B] h-full google-auto-ads-ignore" id="sole-editor-view" data-google-auto-ads-ignore="true">
                 <div className="h-10 px-4 flex items-center bg-[#0F172A]/30 border-b border-slate-800/50 justify-between select-none">
                   <span className="text-[11px] font-mono text-slate-500 uppercase tracking-widest">Focused Editor Terminal</span>
                   <span className="text-[10px] bg-indigo-950 text-indigo-300 border border-indigo-900 px-2 py-0.5 rounded font-mono">SOLE</span>
@@ -682,23 +711,43 @@ ${compiledHtml}
                     <span className="font-mono text-[10px] bg-slate-100 text-slate-600 border border-slate-250 px-3 py-1 rounded font-bold tracking-wider uppercase">
                       Rendered Presentation Theme: {selectedTheme.name}
                     </span>
-                    <button
-                      onClick={() => copyToClipboard(compiledHtml, 'full-html')}
-                      className="px-3.5 py-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-500 hover:bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-1.5 transition cursor-pointer shadow-xs"
-                      title="Copy Compiled HTML"
-                    >
-                      {isCopied && clipboardFeedback === 'full-html' ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-emerald-600" />
-                          <span>Copied Converted HTML!</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5 text-slate-400" />
-                          <span>Copy Converted HTML</span>
-                        </>
-                      )}
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => copyToClipboard(compiledHtml, 'full-html')}
+                        className="px-3.5 py-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-500 hover:bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-1.5 transition cursor-pointer shadow-xs"
+                        title="Copy Compiled HTML"
+                      >
+                        {isCopied && clipboardFeedback === 'full-html' ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>Copied Converted HTML!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5 text-slate-400" />
+                            <span>Copy Converted HTML</span>
+                          </>
+                        )}
+                      </button>
+                      <button
+                        id="btn-copy-preview-text"
+                        onClick={() => copyToClipboard(getPlainText(compiledHtml), 'full-text')}
+                        className="px-3.5 py-1.5 text-xs font-semibold text-slate-700 hover:text-indigo-600 hover:bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-1.5 transition cursor-pointer shadow-xs"
+                        title="Copy as plain text"
+                      >
+                        {isCopied && clipboardFeedback === 'full-text' ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>Copied Plain Text!</span>
+                          </>
+                        ) : (
+                          <>
+                            <FileText className="w-3.5 h-3.5 text-slate-400" />
+                            <span>CopyText</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
                   </div>
                   <div 
                     className={`markdown-body p-8 rounded-lg shadow-md border border-slate-100/10 animate-fade-in ${selectedTheme.previewText || 'text-slate-800'}`}
@@ -754,6 +803,25 @@ ${compiledHtml}
                     </button>
 
                     <button
+                      id="btn-copy-text"
+                      onClick={() => copyToClipboard(getPlainText(compiledHtml), 'html-text')}
+                      className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs transition-colors flex items-center space-x-1.5 cursor-pointer border border-slate-700"
+                      title="Copy as plain text"
+                    >
+                      {isCopied && clipboardFeedback === 'html-text' ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-400" />
+                          <span>Copied Text!</span>
+                        </>
+                      ) : (
+                        <>
+                          <FileText className="w-3.5 h-3.5 text-slate-450" />
+                          <span>CopyText</span>
+                        </>
+                      )}
+                    </button>
+
+                    <button
                       id="btn-download-html"
                       onClick={triggerHtmlDownload}
                       className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-505 text-white font-semibold text-xs transition duration-150 flex items-center space-x-1.5 cursor-pointer shadow-md"
@@ -785,7 +853,7 @@ ${compiledHtml}
 
             {/* VIEW TAB "REVERSE": Interactive HTML back into markdown */}
             {activeTab === 'reverse' && (
-              <div className="flex-1 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-800 overflow-hidden" id="reverse-converter-view">
+              <div className="flex-1 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-800 overflow-hidden google-auto-ads-ignore" id="reverse-converter-view" data-google-auto-ads-ignore="true">
                 {/* HTML Input terminal */}
                 <div className="w-full md:w-1/2 flex flex-col h-1/2 md:h-full bg-[#1E293B] relative">
                   <div className="h-10 px-4 flex items-center bg-[#0F172A]/30 border-b border-slate-800/50 justify-between select-none text-slate-400">

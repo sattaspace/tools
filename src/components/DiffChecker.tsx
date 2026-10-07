@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { 
   FileCode, 
   RotateCcw, 
@@ -629,7 +629,7 @@ export default function DiffChecker() {
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
               <span className="text-[10px] font-bold text-slate-300 font-mono uppercase tracking-widest">
-                ALIGNED COMPILATION VIEW • {viewMode} mode
+                ALIGNED COMPILATION VIEW â€¢ {viewMode} mode
               </span>
             </div>
             

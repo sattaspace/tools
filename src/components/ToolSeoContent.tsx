@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
+import { AutoAdSpace } from './AdsenseBanner';
 import { 
   BookOpen, 
   HelpCircle, 
@@ -87,7 +88,7 @@ export function ToolSeoContent({ tool }: ToolSeoContentProps) {
         },
         {
           q: "What is the benefit of inline character-by-character analysis?",
-          a: "Standard diff tools only mark whole lines as changed, forcing you to manually squint to find tiny changes in long text blocks. Inline analysis runs a secondary micro-LCS comparisons on specific matched lines, highlighting the exact coordinates (characters) that changed—saving development time."
+          a: "Standard diff tools only mark whole lines as changed, forcing you to manually squint to find tiny changes in long text blocks. Inline analysis runs a secondary micro-LCS comparisons on specific matched lines, highlighting the exact coordinates (characters) that changedâ€”saving development time."
         },
         {
           q: "Can I use this tool to compare database records, HTML schemas, or minified scripts?",
@@ -287,7 +288,7 @@ export function ToolSeoContent({ tool }: ToolSeoContentProps) {
       </div>
 
       {/* Interactive FAQ Section with rich competitive answers */}
-      <div className="border-t border-slate-800/70 pt-8" id="seo-frequently-asked-questions">
+      <AutoAdSpace label="In-Article Auto Ad Zone" />`n`n      <div className="border-t border-slate-800/70 pt-8" id="seo-frequently-asked-questions">
         <div className="flex items-center gap-2 mb-6 select-none">
           <HelpCircle className="w-4 h-4 text-emerald-400" />
           <h3 className="text-xs font-bold text-emerald-300 uppercase tracking-widest font-mono">
@@ -328,6 +329,6 @@ export function ToolSeoContent({ tool }: ToolSeoContentProps) {
         </div>
       </div>
 
-    </section>
+    <AutoAdSpace label="Documentation Footer Auto Ad Zone" />`n    </section>
   );
 }

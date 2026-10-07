@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { 
   FileJson, 
   Settings, 
@@ -327,7 +327,7 @@ export default function BlueprintGenerator() {
               <div className="flex items-center gap-2">
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
                 <span className="text-[10px] font-bold text-slate-300 font-mono uppercase tracking-widest">
-                  COMPILED PREVIEW DATA • {outputFormat}
+                  COMPILED PREVIEW DATA â€¢ {outputFormat}
                 </span>
               </div>
 

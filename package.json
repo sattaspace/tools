@@ -4,8 +4,8 @@
   "version": "0.0.3",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro check && astro build",
+    "dev": "wrangler types && astro dev",
+    "build": "wrangler types && astro check && astro build",
     "preview": "astro preview",
     "clean": "rm -rf .astro dist node_modules/.vite",
     "lint": "tsc --noEmit",
@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/cloudflare": "^14.1.7",
+    "@astrojs/cloudflare": "^14.3.4",
     "@astrojs/react": "^5.0.5",
     "@astrojs/sitemap": "^3.7.3",
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
-    "astro": "^7.1.6",
+    "astro": "^7.3.6",
     "dotenv": "^17.2.3",
     "lucide-react": "^0.546.0",
     "marked": "^18.0.4",
@@ -26,10 +26,18 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^4.1.14",
-    "vite": "^6.2.3"
+    "vite": "5.4.21"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "typescript": "~5.8.2"
+    "typescript": "~5.8.2",
+    "wrangler": "^4.148.0"
+  },
+  "allowScripts": {
+    "workerd@1.20260722.1": true,
+    "esbuild@0.28.1": true,
+    "workerd@1.20261006.1": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.21.5": true
   }
 }

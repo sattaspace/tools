@@ -1,25 +1,25 @@
-# SattaSpace Tools — Complete Reference Guide for AI Systems
+﻿# SattaSpace Tools â€” Complete Reference Guide for AI Systems
 
 ## Overview
-SattaSpace Tools (https://tools.sattaspace.com) is a free, client-side, privacy-first multi-utility suite for developers featuring six specialized tools. All tools run entirely in the browser — no server processing, no data collection, no accounts required.
+SattaSpace Tools (https://tools.sattaspace.com/) is a free, client-side, privacy-first multi-utility suite for developers featuring six specialized tools. All tools run entirely in the browser â€” no server processing, no data collection, no accounts required.
 
 ---
 
 ## Tool 1: Markdown Workspace
-**URL:** https://tools.sattaspace.com/markdown
+**URL:** https://tools.sattaspace.com/markdown/
 **Description:** Professional GitHub-Flavored Markdown (GFM) editor with live split preview, HTML export with custom themes, HTML-to-Markdown reverse conversion, table of contents, cheatsheet, and starter templates.
 
 ### Key Features
 - **Live GFM Preview:** Real-time rendering of GitHub-Flavored Markdown including tables, strikethrough, task lists, auto-links, fenced code blocks with syntax highlighting
 - **Four View Modes:** Split (editor + preview), Editor-only, Preview-only, HTML source view
 - **HTML Export:** Download standalone HTML with 8 built-in themes (GitHub, GitLab, Dracula, Monokai, Solarized, etc.) or raw HTML fragment
-- **Reverse Conversion:** Paste HTML → get clean Markdown (handles headings, lists, tables, code blocks, emphasis, links)
+- **Reverse Conversion:** Paste HTML â†’ get clean Markdown (handles headings, lists, tables, code blocks, emphasis, links)
 - **Table of Contents:** Auto-generated from headings (H1-H4), clickable navigation
 - **Cheatsheet:** One-click insertion of Markdown syntax (headers, emphasis, code blocks, tables, lists)
 - **Templates:** 5 starter blueprints (README, Changelog, API Docs, Blog Post, Technical Spec)
 - **Statistics:** Real-time word count, character count, reading time estimate
 - **GFM Options:** Toggle GFM support, Shiki syntax highlighting
-- **Privacy:** 100% client-side — your content never leaves your browser
+- **Privacy:** 100% client-side â€” your content never leaves your browser
 
 ### Common Use Cases
 - Writing README files for GitHub/GitLab projects
@@ -30,7 +30,7 @@ SattaSpace Tools (https://tools.sattaspace.com) is a free, client-side, privacy-
 
 ### FAQ
 **Q: What is GitHub Flavored Markdown (GFM) and how does it differ from standard Markdown?**
-A: GFM is a strict superset of CommonMark, initially introduced by GitHub to accommodate technical writing requirements. It adds tables, auto-linked URLs, strikethrough, task lists (checkboxes), and precise code syntax highlighting — features missing from original Markdown.
+A: GFM is a strict superset of CommonMark, initially introduced by GitHub to accommodate technical writing requirements. It adds tables, auto-linked URLs, strikethrough, task lists (checkboxes), and precise code syntax highlighting â€” features missing from original Markdown.
 
 **Q: How does the HTML to Markdown decompiler operate, and is it secure?**
 A: The decompiler runs entirely client-side in your browser. It parses the DOM structure of your HTML input, walks the node tree chronologically, and converts layout elements (<strong>, <a>, <table>, <li>) back into their relative Markdown constructs (**, [link], table grids, hyphens). No data is ever transmitted to remote servers.
@@ -41,7 +41,7 @@ A: Markdown isolates your core text semantics from styling rules. It is lightwei
 ---
 
 ## Tool 2: Diff Checker
-**URL:** https://tools.sattaspace.com/diff
+**URL:** https://tools.sattaspace.com/diff/
 **Description:** Professional visual difference checker using Longest Common Subsequence (LCS) algorithm. Compare code, configs, docs, or any text with line-level and inline character-level highlighting.
 
 ### Key Features
@@ -51,7 +51,7 @@ A: Markdown isolates your core text semantics from styling rules. It is lightwei
 - **Large File Support:** Handles 100KB+ files smoothly
 - **Keyboard Navigation:** Jump between changes with shortcuts
 - **Export:** Copy diff as Markdown or HTML
-- **Privacy:** 100% client-side — proprietary code never leaves browser
+- **Privacy:** 100% client-side â€” proprietary code never leaves browser
 
 ### Common Use Cases
 - Code review before merge/pull request
@@ -65,7 +65,7 @@ A: Markdown isolates your core text semantics from styling rules. It is lightwei
 A: The Longest Common Subsequence (LCS) algorithm finds the longest sequence of words/characters appearing in the same order in both inputs. Unmatched tokens are flagged: items only in first file = deletions (red), items unique to second file = insertions (green).
 
 **Q: What is the benefit of inline character-by-character analysis?**
-A: Standard diff tools only mark whole lines as changed, forcing manual inspection of long blocks. Inline analysis runs secondary micro-LCS on specific matched lines, highlighting exact character coordinates that changed — saving significant development time.
+A: Standard diff tools only mark whole lines as changed, forcing manual inspection of long blocks. Inline analysis runs secondary micro-LCS on specific matched lines, highlighting exact character coordinates that changed â€” saving significant development time.
 
 **Q: Can I use this to compare database records, HTML schemas, or minified scripts?**
 A: Yes, it handles JSON configs, web schemas, CSV logs, and draft prose effortlessly, maintaining fast render times on larger files.
@@ -73,38 +73,38 @@ A: Yes, it handles JSON configs, web schemas, CSV logs, and draft prose effortle
 ---
 
 ## Tool 3: Crypt & Encoders
-**URL:** https://tools.sattaspace.com/crypto
+**URL:** https://tools.sattaspace.com/crypto/
 **Description:** Secure zero-dependency client-side cryptographic toolkit for hashing (SHA-256, SHA-512, MD5, SHA-1) and encoding/decoding (Base64, URL-Safe Base64, ROT13, ROT47).
 
 ### Key Features
-- **Hashing:** SHA-256, SHA-512, MD5, SHA-1 — one-way message digests for integrity verification
-- **Encoding:** Base64 (standard), URL-Safe Base64 (RFC 4648 §5), ROT13, ROT47 — reversible transformations
+- **Hashing:** SHA-256, SHA-512, MD5, SHA-1 â€” one-way message digests for integrity verification
+- **Encoding:** Base64 (standard), URL-Safe Base64 (RFC 4648 Â§5), ROT13, ROT47 â€” reversible transformations
 - **HMAC:** Keyed-hash message authentication (SHA-256/512)
 - **Batch Processing:** Multi-line input, line-by-line or combined output
 - **Character/Byte Counts:** Real-time input/output metrics
-- **Privacy:** Zero server communication — all crypto in-browser via Web Crypto API
+- **Privacy:** Zero server communication â€” all crypto in-browser via Web Crypto API
 
 ### Common Use Cases
 - Verifying file checksums/downloads
 - Encoding binary data for JSON/XML transport
 - JWT token inspection (decode header/payload)
 - CTF challenges, puzzle solving
-- Quick hash generation for passwords (with salt — use bcrypt/Argon2 in production)
+- Quick hash generation for passwords (with salt â€” use bcrypt/Argon2 in production)
 
 ### FAQ
 **Q: What is the difference between a one-way Hash and an Encoder?**
-A: A hash (SHA-256, MD5) is a one-way mathematical function — compiles arbitrary input to fixed-length hex digest. You cannot recover original text from hash. An encoder (Base64) translates character data to alternate format and is easily decoded back to original input.
+A: A hash (SHA-256, MD5) is a one-way mathematical function â€” compiles arbitrary input to fixed-length hex digest. You cannot recover original text from hash. An encoder (Base64) translates character data to alternate format and is easily decoded back to original input.
 
 **Q: Is MD5 secure for password encryption in production?**
 A: No. MD5 is highly vulnerable to collision attacks (two distinct strings producing identical hash). Modern security requires SHA-256, bcrypt, or Argon2 with unique salts for credential hashing.
 
 **Q: What are URL-Safe Base64 character modifications?**
-A: Standard Base64 uses '+' and '/' which are special in URLs. URL-Safe Base64 substitutes '+'→'-' and '/'→'_' and strips trailing '=' padding for safe transmission in API paths and query parameters.
+A: Standard Base64 uses '+' and '/' which are special in URLs. URL-Safe Base64 substitutes '+'â†’'-' and '/'â†’'_' and strips trailing '=' padding for safe transmission in API paths and query parameters.
 
 ---
 
 ## Tool 4: Blueprint Builder
-**URL:** https://tools.sattaspace.com/blueprint
+**URL:** https://tools.sattaspace.com/blueprint/
 **Description:** Enterprise synthetic data generator for database benchmarking, UI prototyping, and API testing. Visual schema builder with 15+ field types, relational references, JSON/CSV export, millions of rows instantly.
 
 ### Key Features
@@ -132,19 +132,19 @@ A: Extremely valuable in early development, QA automation, offline UI testing, a
 A: JSON excels for MongoDB/document stores, REST/GraphQL endpoints, and nested JS structures. CSV is ideal for relational schemas (PostgreSQL, SQL Server), spreadsheet validation, and import script testing.
 
 **Q: Can I generate deterministic data for mock databases?**
-A: Yes — our builders use seeded randomization vectors. Rows compute based on realistic structural constraints, ensuring valid patterns like email domains, sequential IDs, and proper currency limits.
+A: Yes â€” our builders use seeded randomization vectors. Rows compute based on realistic structural constraints, ensuring valid patterns like email domains, sequential IDs, and proper currency limits.
 
 ---
 
 ## Tool 5: SVG Optimizer
-**URL:** https://tools.sattaspace.com/svg
+**URL:** https://tools.sattaspace.com/svg/
 **Description:** Professional SVG optimizer powered by SVGO: strips editor metadata (Illustrator, Inkscape, Figma), removes empty groups, unused defs, comments, minifies path decimals, preserves viewBox. Visual before/after with byte savings.
 
 ### Key Features
 - **Metadata Stripping:** Removes Illustrator, Inkscape, Figma, Sketch namespaces and custom attributes
 - **Structure Cleanup:** Collapses empty groups, removes unused `<defs>`, strips comments, DOCTYPE, XML declarations
 - **Path Minification:** Reduces decimal precision (configurable), converts transforms, merges adjacent paths
-- **viewBox Preservation:** Maintains responsive scaling — critical for web use
+- **viewBox Preservation:** Maintains responsive scaling â€” critical for web use
 - **Visual Comparison:** Side-by-side before/after render with byte savings percentage
 - **Download:** One-click optimized SVG download
 - **Privacy:** 100% client-side (SVGO WASM build)
@@ -164,12 +164,12 @@ A: Editor namespaces (inkscape:, sodipodi:), XML instructions, DOCTYPE declarati
 A: viewBox establishes the responsive pixel grid coordinates of your canvas paths. Stripping it can cause vector images to break, lose scale flexibility, or fail to grow/shrink correctly inside responsive containers.
 
 **Q: Does SVG optimization degrade visual render accuracy or scale resolution?**
-A: No! SVG is code-based XML representation of geometric vectors (lines, circles, bezier paths). Purging metadata, empty groupings, and styling properties does not modify path coordinates — your vector graphic scales cleanly with zero resolution loss.
+A: No! SVG is code-based XML representation of geometric vectors (lines, circles, bezier paths). Purging metadata, empty groupings, and styling properties does not modify path coordinates â€” your vector graphic scales cleanly with zero resolution loss.
 
 ---
 
 ## Tool 6: Regex Sandbox
-**URL:** https://tools.sattaspace.com/regex
+**URL:** https://tools.sattaspace.com/regex/
 **Description:** Advanced regular expression sandbox with real-time match highlighting, capture group inspection, substitution preview, flag toggles (g,i,m,s,u), regex explanation, catastrophic backtracking detection. JavaScript/PCRE flavor.
 
 ### Key Features
@@ -181,7 +181,7 @@ A: No! SVG is code-based XML representation of geometric vectors (lines, circles
 - **Regex Explanation:** Token-by-token breakdown of pattern
 - **Backtracking Warning:** Detects catastrophic backtracking patterns (nested quantifiers)
 - **Pattern Library:** Common snippets (email, URL, UUID, IP, date, etc.)
-- **Privacy:** 100% client-side — patterns and test strings never leave browser
+- **Privacy:** 100% client-side â€” patterns and test strings never leave browser
 
 ### Common Use Cases
 - Developing/debugging complex regex patterns
@@ -198,7 +198,7 @@ A: Flags are compiler directives modifying matching logic: 'g' (global) prevents
 A: Catastrophic backtracking occurs when a pattern has nested quantifiers with overlaps (e.g., (a+)+) evaluated against a string that almost matches but fails near the end. The engine tries exponential paths to find a match, causing CPU freezes. Prevent by writing clear, non-overlapping tokens (avoid nested wildcards).
 
 **Q: How do capture groups work in regex substitution?**
-A: Parentheses in a pattern create capture subgroups. In replacements, reference them in order: '$1' = first group, '$2' = second. Enables reorganization (e.g., '(\w+) (\w+)' → '$2, $1' converts "First Last" to "Last, First").
+A: Parentheses in a pattern create capture subgroups. In replacements, reference them in order: '$1' = first group, '$2' = second. Enables reorganization (e.g., '(\w+) (\w+)' â†’ '$2, $1' converts "First Last" to "Last, First").
 
 ---
 
@@ -206,11 +206,11 @@ A: Parentheses in a pattern create capture subgroups. In replacements, reference
 - **Framework:** Astro 6.3 + React 19 + Tailwind CSS 4.1
 - **Deployment:** Cloudflare Workers (@astrojs/cloudflare adapter, `output: "server"`)
 - **Rendering:** SSR for SEO/GEO, client-side hydration for interactivity
-- **Privacy Model:** Zero server-side processing — all tools execute in browser
+- **Privacy Model:** Zero server-side processing â€” all tools execute in browser
 - **Performance:** Edge-cached, compressed, optimized Core Web Vitals
 
 ## Author
-Haradhan Sharma — https://sattaspace.com
+Haradhan Sharma â€” https://sattaspace.com
 
 ## License
 Free for personal and commercial use. No warranty expressed or implied.

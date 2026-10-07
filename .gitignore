@@ -2,7 +2,7 @@ node_modules/
 build/
 dist/
 coverage/
-.astro
+.astro/
 .wrangler
 .DS_Store
 *.log
@@ -10,3 +10,4 @@ coverage/
 !.env.example
 SEO_GEO_IMPLEMENTATION_TRACKING.md
 SEO_GEO_TECHNICAL_PLAN.md
+.agentskills/

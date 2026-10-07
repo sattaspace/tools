@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { 
   FileEdit, 
   Split,
@@ -22,21 +22,27 @@ interface ToolHubProps {
 }
 
 const TOOL_PATHS: Record<ActiveTool, string> = {
-  markdown: '/markdown',
-  diff: '/diff',
-  crypto: '/crypto',
-  blueprint: '/blueprint',
-  svg: '/svg',
-  regex: '/regex',
+  markdown: '/markdown/',
+  diff: '/diff/',
+  crypto: '/crypto/',
+  blueprint: '/blueprint/',
+  svg: '/svg/',
+  regex: '/regex/',
 };
 
 const PATH_TO_TOOL: Record<string, ActiveTool> = {
   '/markdown': 'markdown',
+  '/markdown/': 'markdown',
   '/diff': 'diff',
+  '/diff/': 'diff',
   '/crypto': 'crypto',
+  '/crypto/': 'crypto',
   '/blueprint': 'blueprint',
+  '/blueprint/': 'blueprint',
   '/svg': 'svg',
+  '/svg/': 'svg',
   '/regex': 'regex',
+  '/regex/': 'regex',
 };
 
 export default function ToolHub({ initialTool = 'markdown' }: ToolHubProps) {
@@ -73,7 +79,7 @@ export default function ToolHub({ initialTool = 'markdown' }: ToolHubProps) {
   return (
     <div className="flex flex-col h-screen max-h-screen bg-[#0F172A] text-slate-200 overflow-hidden font-sans" id="tool-hub-root">
       {/* CENTRAL DEVS SUITE BRAND EXTRACTION HEADER */}
-      <header className="h-14 border-b border-slate-800 bg-[#1E293B] flex items-center justify-between px-6 shrink-0 z-10" id="tool-hub-main-header">
+      <header className="h-14 border-b border-slate-800 bg-[#1E293B] flex items-center justify-between px-6 shrink-0 z-10 google-auto-ads-ignore" id="tool-hub-main-header" data-google-auto-ads-ignore="true">
         {/* Hub Logo & Version */}
         <div className="flex items-center gap-3 select-none">
           <img src="/logo.svg" alt="SattaSpace Tools Logo" className="w-8.5 h-8.5 object-contain rounded-lg" />

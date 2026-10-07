@@ -1,4 +1,4 @@
----
+﻿---
 import { getToolSeoConfig, type ToolSeoConfig } from '../lib/seo';
 import ToolHub from '../components/ToolHub';
 import { SITE_SEO } from '../seo';
@@ -43,7 +43,9 @@ const site = import.meta.env.SITE ?? 'https://tools.sattaspace.com';
     <link rel="alternate" hreflang={lang} href={url} />
   ))}
 
-  <script type="application/ld+json" set:html={JSON.stringify(seo.schema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(seo.schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(seo.faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(seo.breadcrumbSchema)} />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
 
