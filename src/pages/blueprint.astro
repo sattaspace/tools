@@ -20,6 +20,7 @@ const site = import.meta.env.SITE ?? 'https://tools.sattaspace.com';
   <link rel="canonical" href={canonicalUrl} />
 
   <title>{seo.title}</title>
+  <meta name="google-adsense-account" content="ca-pub-6547428806314947">
   <meta name="description" content={seo.description} />
   <meta name="keywords" content={seo.keywords.join(', ')} />
   <meta name="author" content={seo.author} />
@@ -50,11 +51,8 @@ const site = import.meta.env.SITE ?? 'https://tools.sattaspace.com';
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
 
   {seo.adsense.enabled && (
-    <script
-      async
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${seo.adsense.client}`}
-      crossorigin="anonymous"
-    />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6547428806314947"
+     crossorigin="anonymous"></script>
   )}
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
