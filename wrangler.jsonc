@@ -1,14 +1,8 @@
-﻿{
+{
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sattaspacetools",
   "compatibility_date": "2026-07-29",
   "compatibility_flags": ["nodejs_compat"],
-  "kv_namespaces": [
-    {
-      "binding": "APP_CACHE",
-      "id": "sattaspacetools-session"
-    }
-  ],
   "assets": {
     "directory": "./dist/client",
     "binding": "ASSETS"
